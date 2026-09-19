@@ -99,12 +99,11 @@ public static class Client
         DebugLog("Starting the Client");
         DiscordSocketConfig config = new()
         {
-            GatewayIntents = GatewayIntents.All,
+            GatewayIntents = GatewayIntents.Guilds,
             LogLevel = Config.Debug ? LogSeverity.Debug : LogSeverity.Warning,
             RestClientProvider = DefaultRestClientProvider.Create(),
             WebSocketProvider = DefaultWebSocketProvider.Create(),
             MessageCacheSize = Config.MessageCacheSize,
-            LogGatewayIntentWarnings = false,
         };
 
         if (!string.IsNullOrEmpty(Config.ProxyUrl))
